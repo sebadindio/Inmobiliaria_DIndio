@@ -7,12 +7,13 @@ Primera entrega de Proyecto de SQL
 <br>
 
 ``` sh
-La gestión de propiedades inmobiliarias implica manejar gran cantidad de datos relacionados con propietarios, edificios,
-departamentos, inquilinos y gastos asociados. Un sistema de base de datos bien estructurado permite organizar, optimizar
-y controlar la información de manera eficiente, reduciendo errores y agilizando la generación de reportes, como el cálculo
-de expensas.
-En este proyecto, se desarrolló una base de datos relacional para una inmobiliaria que administra varios edificios, con 
-el fin de centralizar la información y facilitar el acceso a datos relevantes para la toma de decisiones.
+La gestión de propiedades inmobiliarias implica manejar gran cantidad de datos relacionados con
+propietarios, edificios, departamentos, inquilinos y gastos asociados. Un sistema de base de datos
+bien estructurado permite organizar, optimizar y controlar la información de manera eficiente,
+reduciendo errores y agilizando la generación de reportes, como el cálculo de expensas.
+En este proyecto, se desarrolló una base de datos relacional para una inmobiliaria que administra
+varios edificios, con el fin de centralizar la información y facilitar el acceso a datos relevantes
+para la toma de decisiones.
 
 ```
 
@@ -22,8 +23,9 @@ el fin de centralizar la información y facilitar el acceso a datos relevantes p
 
 ```sh
 Objetivo general:
-Diseñar y desarrollar una base de datos que permita gestionar la información de los propietarios, departamentos, inquilinos 
-y expensas de una inmobiliaria, garantizando integridad, consistencia y rapidez en las consultas.
+Diseñar y desarrollar una base de datos que permita gestionar la información de los propietarios,
+departamentos, inquilinos y expensas de una inmobiliaria, garantizando integridad, consistencia y
+rapidez en las consultas.
 
 Objetivos específicos:
   - Organizar y unificar la información dispersa en un sistema centralizado.
@@ -37,10 +39,11 @@ Objetivos específicos:
 <br>
 
 ```sh
-Actualmente, la inmobiliaria maneja los registros de propietarios, inquilinos y gastos de manera descentralizada, utilizando
-planillas y documentos aislados. Esto provoca duplicación de datos, pérdida de información, errores en los cálculos y demoras
-en la emisión de las expensas. La falta de integración entre los datos de edificios, departamentos, propietarios y gastos
-dificulta la trazabilidad de la información y complica la toma de decisiones.
+Actualmente, la inmobiliaria maneja los registros de propietarios, inquilinos y gastos de manera
+descentralizada, utilizando planillas y documentos aislados. Esto provoca duplicación de datos,
+pérdida de información, errores en los cálculos y demoras en la emisión de las expensas. La falta
+de integración entre los datos de edificios, departamentos, propietarios y gastos dificulta la
+trazabilidad de la información y complica la toma de decisiones.
 ```
 
 
@@ -48,10 +51,11 @@ dificulta la trazabilidad de la información y complica la toma de decisiones.
 <br>
 
 ```sh
-La inmobiliaria administra tres edificios con distintos tipos de alquileres: permanentes y temporales. Cada edificio tiene
-múltiples departamentos con propietarios individuales o empresas. Los ingresos principales provienen de los alquileres y el
-cobro de expensas, mientras que los egresos están relacionados con mantenimiento, servicios y mejoras edilicias. El modelo de
-datos diseñado contempla:
+La inmobiliaria administra tres edificios con distintos tipos de alquileres: permanentes y
+temporales. Cada edificio tiene múltiples departamentos con propietarios individuales o empresas.
+Los ingresos principales provienen de los alquileres y elcobro de expensas, mientras que los egresos
+están relacionados con mantenimiento, servicios y mejoras edilicias. El modelo de datos diseñado
+contempla:
   - Registro y vinculación de propietarios con sus departamentos.
   - Gestión de inquilinos permanentes y temporales.
   - Registro de expensas y gastos detallados.
@@ -65,9 +69,10 @@ datos diseñado contempla:
 <br>
 
 ```sh
-A continuación, se describe cada una de las tablas que conforman esta base de datos y las relaciones que permiten establecer
-vínculos entre los registros de las diferentes tablas, facilitar el acceso y la manipulación de los mismos a través de las
-claves foráneas referidas a las primerias de otras tablas, las cuales de detallan a continuación:
+A continuación, se describe cada una de las tablas que conforman esta base de datos y las relaciones
+que permiten establecer vínculos entre los registros de las diferentes tablas, facilitar el acceso y
+la manipulación de los mismos a través de las claves foráneas referidas a las primerias de otras
+tablas, las cuales de detallan a continuación:
 
     1. Tabla "propietarios":
 
