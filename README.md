@@ -136,6 +136,19 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
 ```
 
+<br>
+
+### Scripts de la Base de Datos (Click en los siguientes enlaces):
+
+<br>
+
+- <a href="./Tabla_create.sql"> Creacion de la Base de Datos </a><br>
+- <a href="./Insertar_datos.sql">Script de Inserción de Datos de las tablas principales</a><br>
+- <a href="./Insertar_datos_extras.sql">Script de Inserción de Datos de tablas adicionales</a><br>
+- <a href="./Diagrama_ER.png">Diagrama Entidad-Relación</a>
+
+<br>
+
 ---
 
 <br>
