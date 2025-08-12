@@ -2,6 +2,7 @@
 Primera entrega de Proyecto de SQL
 ---
 
+---
 
 ## Introducción:
 <br>
@@ -64,7 +65,7 @@ contempla:
 
 ```
 
-### Descripcion de la Base de Datos
+### Descripcion de la Base de Datos:
 
 <br>
 
