@@ -1,6 +1,6 @@
 # <h1 align="center">Inmobiliaria_DIndio</h1> 
 Primera entrega de Proyecto de SQL
-
+---
 ---
 
 ## **Índice**  
@@ -14,7 +14,7 @@ Primera entrega de Proyecto de SQL
 
 ---
 
-## Introducción:
+## Introducción
 <br>
 
 ``` sh
@@ -29,7 +29,7 @@ para la toma de decisiones.
 ```
 
 
-## Objetivos:
+## Objetivos
 <br>
 
 ```sh
@@ -46,7 +46,7 @@ Objetivos específicos:
   - Permitir la gestión diferenciada de alquileres temporales y permanentes.
 ```
 
-## Situación Problematica:
+## Situación Problematica
 <br>
 
 ```sh
@@ -58,7 +58,7 @@ trazabilidad de la información y complica la toma de decisiones.
 ```
 
 
-## Modelo de negocio:
+## Modelo de negocio
 <br>
 
 ```sh
@@ -75,8 +75,7 @@ contempla:
 
 ```
 
-### Descripcion de la Base de Datos:
-
+## Descripcion de la Base de Datos
 <br>
 
 ```sh
@@ -111,7 +110,7 @@ Clave foránea: id_propietario (relacionada con la tabla "propietarios").
 Clave foránea: id_edificio (relacionada con la tabla "edificio").
 Estás claves foráneas se utilizan para relacionar la información de cada departamento con el propietario.
 
-    4. Tabla "expensas"
+    4. Tabla "expensas":
 
 Registra los pagos mensuales y otros cargos asociados al mantenimiento del edificio y sus servicios comunes.
 Incluye el monto, monto extra, deuda y fecha de pago, asociados a un departamento específico.
@@ -119,7 +118,7 @@ Uso principal: llevar control financiero de las expensas de cada unidad.
 Clave primaria: id_expensa.
 Clave foránea: id_depto (relacionada con la tabla "departamentos").
 
-    5. Tabla "inquilinos_temporales"
+    5. Tabla "inquilinos_temporales":
 
 Almacena datos personales de personas que alquilan departamentos por períodos cortos.
 Contiene nombre, apellido, email, teléfono, documento y fecha de nacimiento.
@@ -127,7 +126,7 @@ Uso principal: identificación y contacto de inquilinos en alquiler temporal.
 Clave primaria: id_inquilino.
 No tiene claves foráneas.
 
-    6. Tabla "alquiler_temporal"
+    6. Tabla "alquiler_temporal":
 
 Registra la relación entre un departamento y un inquilino temporal para un período específico.
 Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia al propietario.
@@ -144,13 +143,12 @@ Uso principal: dar transparencia y detalle sobre el origen de los costos incluid
 Clave primaria: id_gasto.
 Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
-
 ```
 
 <br>
 
-### Scripts de la Base de Datos (Click en los siguientes enlaces):
-
+## Scripts de la Base de Datos
+Click en los siguientes enlaces
 <br>
 
 - <a href="./Tabla_create.sql"> Creacion de la Base de Datos </a><br>
@@ -161,8 +159,7 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 <br>
 
 ---
-<br>
-## Autor: Sebastián D'Indio
+### Autor: Sebastián D'Indio
 
 ### Comisión #81830 - CoderHouse
 
