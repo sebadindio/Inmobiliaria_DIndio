@@ -1,5 +1,6 @@
 # <h1 align="center">Inmobiliaria_DIndio</h1> 
 Primera entrega de Proyecto de SQL
+
 ---
 
 ## **Índice**  
@@ -161,7 +162,6 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
 ---
 <br>
-
 ## Autor: Sebastián D'Indio
 
 ### Comisión #81830 - CoderHouse
