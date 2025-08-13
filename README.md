@@ -18,13 +18,12 @@ Primera entrega de Proyecto de SQL
 <br>
 
 ``` sh
-La gestión de propiedades inmobiliarias implica manejar gran cantidad de datos relacionados con
-propietarios, edificios, departamentos, inquilinos y gastos asociados. Un sistema de base de datos
-bien estructurado permite organizar, optimizar y controlar la información de manera eficiente,
-reduciendo errores y agilizando la generación de reportes, como el cálculo de expensas.
-En este proyecto, se desarrolló una base de datos relacional para una inmobiliaria que administra
-varios edificios, con el fin de centralizar la información y facilitar el acceso a datos relevantes
-para la toma de decisiones.
+La gestión de propiedades inmobiliarias implica manejar gran cantidad de datos relacionados con propietarios, edificios,
+departamentos, inquilinos y gastos asociados. Un sistema de base de datos bien estructurado permite organizar, optimizar y
+controlar la información de manera eficiente, reduciendo errores y agilizando la generación de reportes, como el cálculo de
+expensas.
+En este proyecto, se desarrolló una base de datos relacional para una inmobiliaria que administra varios edificios, con el
+fin de centralizar la información y facilitar el acceso a datos relevantes para la toma de decisiones.
 
 ```
 
@@ -34,9 +33,8 @@ para la toma de decisiones.
 
 ```sh
 Objetivo general:
-Diseñar y desarrollar una base de datos que permita gestionar la información de los propietarios,
-departamentos, inquilinos y expensas de una inmobiliaria, garantizando integridad, consistencia y
-rapidez en las consultas.
+Diseñar y desarrollar una base de datos que permita gestionar la información de los propietarios, departamentos, inquilinos y
+expensas de una inmobiliaria, garantizando integridad, consistencia y rapidez en las consultas.
 
 Objetivos específicos:
   - Organizar y unificar la información dispersa en un sistema centralizado.
@@ -50,11 +48,10 @@ Objetivos específicos:
 <br>
 
 ```sh
-Actualmente, la inmobiliaria maneja los registros de propietarios, inquilinos y gastos de manera
-descentralizada, utilizando planillas y documentos aislados. Esto provoca duplicación de datos,
-pérdida de información, errores en los cálculos y demoras en la emisión de las expensas. La falta
-de integración entre los datos de edificios, departamentos, propietarios y gastos dificulta la
-trazabilidad de la información y complica la toma de decisiones.
+Actualmente, la inmobiliaria maneja los registros de propietarios, inquilinos y gastos de manera descentralizada, utilizando
+planillas y documentos aislados. Esto provoca duplicación de datos, pérdida de información, errores en los cálculos y demoras
+en la emisión de las expensas. La falta de integración entre los datos de edificios, departamentos, propietarios y gastos
+dificulta la trazabilidad de la información y complica la toma de decisiones.
 ```
 
 
@@ -62,11 +59,10 @@ trazabilidad de la información y complica la toma de decisiones.
 <br>
 
 ```sh
-La inmobiliaria administra tres edificios con distintos tipos de alquileres: permanentes y
-temporales. Cada edificio tiene múltiples departamentos con propietarios individuales o empresas.
-Los ingresos principales provienen de los alquileres y elcobro de expensas, mientras que los egresos
-están relacionados con mantenimiento, servicios y mejoras edilicias. El modelo de datos diseñado
-contempla:
+La inmobiliaria administra tres edificios con distintos tipos de alquileres: permanentes y temporales. Cada edificio tiene
+múltiples departamentos con propietarios individuales o empresas.
+Los ingresos principales provienen de los alquileres y elcobro de expensas, mientras que los egresos están relacionados con
+mantenimiento, servicios y mejoras edilicias. El modelo de datos diseñado contempla:
   - Registro y vinculación de propietarios con sus departamentos.
   - Gestión de inquilinos permanentes y temporales.
   - Registro de expensas y gastos detallados.
@@ -79,16 +75,14 @@ contempla:
 <br>
 
 ```sh
-A continuación, se describe cada una de las tablas que conforman esta base de datos y las relaciones
-que permiten establecer vínculos entre los registros de las diferentes tablas, facilitar el acceso y
-la manipulación de los mismos a través de las claves foráneas referidas a las primerias de otras
-tablas, las cuales de detallan a continuación:
+A continuación, se describe cada una de las tablas que conforman esta base de datos y las relaciones que permiten establecer
+vínculos entre los registros de las diferentes tablas, facilitar el acceso y la manipulación de los mismos a través de las
+claves foráneas referidas a las primerias de otras tablas, las cuales de detallan a continuación:
 
     1. Tabla "propietarios":
 
 Registra la información de los dueños de los departamentos administrados por la inmobiliaria.
-Incluye datos personales como nombre, apellido, email y teléfono, permitiendo identificar y contactar
-a cada propietario.
+Incluye datos personales como nombre, apellido, email y teléfono, permitiendo identificar y contactar a cada propietario.
 Uso principal: vincular departamentos con sus respectivos dueños.
 Clave primaria: id_propietario. Identificador único para cada dueño.
 No tiene claves foráneas.
@@ -97,8 +91,7 @@ No tiene claves foráneas.
 
 Almacena la información básica de cada edificio que administra la inmobiliaria.
 Contiene el nombre del edificio, dirección y fecha de construcción.
-Uso principal: identificar a qué edificio pertenece cada departamento y gestionar información general
-del inmueble.
+Uso principal: identificar a qué edificio pertenece cada departamento y gestionar información general del inmueble.
 Clave primaria: id_edificio. Identificador único de cada edificio.
 No tiene claves foráneas.
 
@@ -106,18 +99,15 @@ No tiene claves foráneas.
 
 Guarda los datos de cada unidad habitacional.
 Incluye piso, número, dimensiones y las referencias a su propietario y edificio.
-Uso principal: centralizar la información de cada departamento y servir de enlace para expensas,
-alquileres y ocupantes.
+Uso principal: centralizar la información de cada departamento y servir de enlace para expensas, alquileres y ocupantes.
 Clave primaria: id_depto. Identificador único de cada departamento.
 Clave foránea: id_propietario (relacionada con la tabla "propietarios").
 Clave foránea: id_edificio (relacionada con la tabla "edificio").
-Estás claves foráneas se utilizan para relacionar la información de cada departamento con el
-propietario.
+Estás claves foráneas se utilizan para relacionar la información de cada departamento con el propietario.
 
     4. Tabla "expensas":
 
-Registra los pagos mensuales y otros cargos asociados al mantenimiento del edificio y sus servicios
-comunes.
+Registra los pagos mensuales y otros cargos asociados al mantenimiento del edificio y sus servicios comunes.
 Incluye el monto, monto extra, deuda y fecha de pago, asociados a un departamento específico.
 Uso principal: llevar control financiero de las expensas de cada unidad.
 Clave primaria: id_expensa.
@@ -134,8 +124,7 @@ No tiene claves foráneas.
     6. Tabla "alquiler_temporal":
 
 Registra la relación entre un departamento y un inquilino temporal para un período específico.
-Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia
-al propietario.
+Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia al propietario.
 Uso principal: gestión de contratos de alquiler temporal y cálculo de ingresos.
 Clave primaria: id_alquiler
 Clave foránea: id_depto (relacionada con la tabla "departamentos").
