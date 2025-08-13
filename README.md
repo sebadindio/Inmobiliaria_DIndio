@@ -87,7 +87,8 @@ tablas, las cuales de detallan a continuación:
     1. Tabla "propietarios":
 
 Registra la información de los dueños de los departamentos administrados por la inmobiliaria.
-Incluye datos personales como nombre, apellido, email y teléfono, permitiendo identificar y contactar a cada propietario.
+Incluye datos personales como nombre, apellido, email y teléfono, permitiendo identificar y contactar
+a cada propietario.
 Uso principal: vincular departamentos con sus respectivos dueños.
 Clave primaria: id_propietario. Identificador único para cada dueño.
 No tiene claves foráneas.
@@ -96,7 +97,8 @@ No tiene claves foráneas.
 
 Almacena la información básica de cada edificio que administra la inmobiliaria.
 Contiene el nombre del edificio, dirección y fecha de construcción.
-Uso principal: identificar a qué edificio pertenece cada departamento y gestionar información general del inmueble.
+Uso principal: identificar a qué edificio pertenece cada departamento y gestionar información general
+del inmueble.
 Clave primaria: id_edificio. Identificador único de cada edificio.
 No tiene claves foráneas.
 
@@ -104,15 +106,18 @@ No tiene claves foráneas.
 
 Guarda los datos de cada unidad habitacional.
 Incluye piso, número, dimensiones y las referencias a su propietario y edificio.
-Uso principal: centralizar la información de cada departamento y servir de enlace para expensas, alquileres y ocupantes.
+Uso principal: centralizar la información de cada departamento y servir de enlace para expensas,
+alquileres y ocupantes.
 Clave primaria: id_depto. Identificador único de cada departamento.
 Clave foránea: id_propietario (relacionada con la tabla "propietarios").
 Clave foránea: id_edificio (relacionada con la tabla "edificio").
-Estás claves foráneas se utilizan para relacionar la información de cada departamento con el propietario.
+Estás claves foráneas se utilizan para relacionar la información de cada departamento con el
+propietario.
 
     4. Tabla "expensas":
 
-Registra los pagos mensuales y otros cargos asociados al mantenimiento del edificio y sus servicios comunes.
+Registra los pagos mensuales y otros cargos asociados al mantenimiento del edificio y sus servicios
+comunes.
 Incluye el monto, monto extra, deuda y fecha de pago, asociados a un departamento específico.
 Uso principal: llevar control financiero de las expensas de cada unidad.
 Clave primaria: id_expensa.
@@ -129,13 +134,14 @@ No tiene claves foráneas.
     6. Tabla "alquiler_temporal":
 
 Registra la relación entre un departamento y un inquilino temporal para un período específico.
-Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia al propietario.
+Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia
+al propietario.
 Uso principal: gestión de contratos de alquiler temporal y cálculo de ingresos.
 Clave primaria: id_alquiler
 Clave foránea: id_depto (relacionada con la tabla "departamentos").
 Clave foránea: id_inquilino (relacionada con la tabla "inquilinos_temporales").
 
-      7. Tabla "gastos_detallados"
+      7. Tabla "gastos_detallados":
 
 Desglosa los gastos específicos que conforman las expensas.
 Incluye descripción, monto y fecha del gasto, además de la referencia a la expensa correspondiente.
@@ -148,7 +154,7 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 <br>
 
 ## Scripts de la Base de Datos
-Click en los siguientes enlaces
+Click en los siguientes enlaces:
 <br>
 
 - <a href="./Tabla_create.sql"> Creacion de la Base de Datos </a><br>
