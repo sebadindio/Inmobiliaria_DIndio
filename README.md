@@ -12,7 +12,6 @@ Primera entrega de Proyecto de SQL
 6. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
 
 ---
----
 
 ## Introducción:
 <br>
@@ -161,7 +160,6 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 <br>
 
 ---
-
 <br>
 
 ## Autor: Sebastián D'Indio
