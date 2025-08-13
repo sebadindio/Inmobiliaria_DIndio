@@ -2,6 +2,16 @@
 Primera entrega de Proyecto de SQL
 ---
 
+## **Índice**  
+
+1. [Introducción](#introducción)  
+2. [Objetivos](#objetivos)  
+3. [Situación Problematica](#situación-problematica)  
+4. [Modelo de negocio](#modelo-de-negocio)  
+5. [Descripcion de la Base de Datos](#descripcion-de-la-base-de-datos)  
+6. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
+
+---
 ---
 
 ## Introducción:
