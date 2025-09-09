@@ -9,7 +9,7 @@ Este script contiene los datos de:
 */
 USE Inmobiliaria;
 
--- Datos para la tabla expensas
+-- Datos para la tabla expensas --------------------------------------------------------------------------------------------------
 INSERT INTO expensas(id_depto, mes, anio, monto, monto_extra, deuda, fecha_pago, pagado) 
 VALUES
 (1, 1, 2025, 3575.00, 120.50, 0.00, '2025-01-05', TRUE),
@@ -744,9 +744,8 @@ VALUES
 (120, 5, 2025, 4750.00, 0.00, 0.00, '2025-05-12', TRUE),
 (120, 6, 2025, 4800.00, 0.00, 0.00, '2025-06-15', TRUE);
 
-
     
--- Datos para la tabla Inquilinos temporales
+-- Datos para la tabla Inquilinos temporales ----------------------------------------------------------------------------------------
 INSERT INTO inquilinos_temporales (nombre, apellido, email, telefono, documento, fecha_nacimiento) 
 VALUES
 ('Lucas', 'Gomez', 'lucas.gomez@example.com', '1145678901', '12345678', '1990-04-15'),
@@ -775,9 +774,17 @@ VALUES
 ('Lucas', 'Fernandez', 'lucas.fernandez@example.com', '1165437654', '67890066', '1991-03-28'),
 ('Victoria', 'Mora', 'victoria.mora@example.com', '1147654320', '78901077', '1987-06-12');
 
+-- Importo los datos de tabla inquilinos temporales a generales, agregando el tipo temporal
+INSERT INTO inquilinos_generales (tipo_inquilino, nombre, apellido, email, telefono, documento, fecha_nacimiento)
+SELECT 'TEMPORAL', nombre, apellido, email, telefono, documento, fecha_nacimiento
+FROM inquilinos_temporales;
 
--- Datos para la tabla alquileres temporales
-INSERT INTO alquileres_temporales(id_depto, id_inquilino, fecha_inicio, fecha_fin, monto_diario, gastos_mantenimiento) 
+-- Elimino la tabla inquilinos temporales y alquileres_temporales porque estan relacionadas
+DROP TABLE alquileres_temporales;
+DROP TABLE inquilinos_temporales;
+
+-- Datos para la tabla alquileres ---------------------------------------------------------------------------------------------------
+INSERT INTO alquileres(id_depto, id_inquilino, fecha_inicio, fecha_fin, monto_diario, gastos_mantenimiento) 
 VALUES
 (101, 1, '2025-01-01', '2025-03-31', 1500.00, 200.00),
 (102, 2, '2025-02-15', '2025-05-15', 1600.00, 150.00),
@@ -806,7 +813,7 @@ VALUES
 (61, 25, '2025-01-08', '2025-04-08', 1500.00, 140.00);
 
 
--- Datos para la tabla gastos detallados
+-- Datos para la tabla gastos detallados --------------------------------------------------------------------------------------------
 INSERT INTO gastos_detallados(id_expensa, descripcion, monto, fecha) 
 VALUES
 (1, 'Limpieza general del edificio', 1200.00, '2025-01-05 09:00:00'),

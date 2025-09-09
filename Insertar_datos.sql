@@ -273,3 +273,14 @@ VALUES
 (63, 3, 16, '16C', 55),
 (64, 3, 16, '16D', 55);
 
+-- Agrego datos extras porque al hacer las vistas alguno no figuraban con nada 
+INSERT INTO gastos_detallados (id_expensa, descripcion, monto)
+SELECT 
+    e.id_expensa, 
+    'Mantenimiento general', 
+    500.00
+FROM expensas e
+LEFT JOIN gastos_detallados g 
+    ON e.id_expensa = g.id_expensa
+WHERE g.id_expensa IS NULL;
+

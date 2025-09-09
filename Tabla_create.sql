@@ -46,18 +46,19 @@ CREATE TABLE IF NOT EXISTS expensas(
     pagado BOOLEAN DEFAULT FALSE,
 	FOREIGN KEY (id_depto) REFERENCES departamentos(id_depto));
 
--- Tabla Inquilinos temporales
-CREATE TABLE IF NOT EXISTS inquilinos_temporales(
+-- Tabla Inquilinos generales
+CREATE TABLE IF NOT EXISTS inquilinos_generales(
 	id_inquilino INT PRIMARY KEY AUTO_INCREMENT,
+    tipo_inquilino ENUM('PERMANENTE','TEMPORAL') NOT NULL,
     nombre VARCHAR (50) NOT NULL,
     apellido VARCHAR (50) NOT NULL,
     email VARCHAR (150) UNIQUE NOT NULL,
     telefono VARCHAR(20),
     documento VARCHAR(10) UNIQUE NOT NULL,
-    fecha_nacimiento DATE NOT NULL);    
+    fecha_nacimiento DATE NOT NULL);   
 
--- Tabla alquiler temporal
-CREATE TABLE IF NOT EXISTS alquileres_temporales (
+-- Tabla alquileres
+CREATE TABLE IF NOT EXISTS alquileres (
     id_alquiler INT PRIMARY KEY AUTO_INCREMENT,
     id_depto INT NOT NULL,
     id_inquilino INT NOT NULL,
@@ -66,7 +67,7 @@ CREATE TABLE IF NOT EXISTS alquileres_temporales (
     monto_diario DECIMAL(10, 2) NOT NULL,
     gastos_mantenimiento DECIMAL(10, 2) DEFAULT 0.00,
     FOREIGN KEY (id_depto) REFERENCES departamentos(id_depto),
-    FOREIGN KEY (id_inquilino) REFERENCES inquilinos_temporales(id_inquilino));
+    FOREIGN KEY (id_inquilino) REFERENCES inquilinos_generales(id_inquilino));
 
 -- Tabla gastos detallados
 CREATE TABLE IF NOT EXISTS gastos_detallados(
