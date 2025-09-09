@@ -9,8 +9,12 @@ Primera entrega de Proyecto de SQL
 2. [Objetivos](#objetivos)  
 3. [Situación Problematica](#situación-problematica)  
 4. [Modelo de negocio](#modelo-de-negocio)  
-5. [Descripcion de la Base de Datos](#descripcion-de-la-base-de-datos)  
-6. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
+5. [Descripcion de la Base de Datos](#descripcion-de-la-base-de-datos)
+6. [Vistas]
+7. [Funciones]
+8. [Stored Procedures]
+9. [Trigger]
+10. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
 
 ---
 
@@ -139,6 +143,33 @@ Clave primaria: id_gasto.
 Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
 ```
+## Vistas (5)
+más una descripción detallada, su objetivo, y qué tablas las componen.
+
+## Funciones (2)
+que incluyan una descripción detallada, el objetivo para la cual fueron creadas y qué datos o tablas manipulan y/o son implementadas.
+
+## Stored Procedures (2)
+con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúa.
+
+## Trigger (2)
+
+
+
+Un archivo .sql que contenga:
+
+Script de inserción de datos en las bases.
+
+Si se insertan datos mediante importación, agregar el paso a paso de éste en el DOC PDF más los archivos con el contenido a importar, en el formato que corresponda.
+
+Script de creación de Vistas, Funciones, Stored Procedures y Triggers. <---------------> Formato
+
+
+Documento PDF con el nombre “Entrega2 + Apellido”.
+
+
+
+
 
 <br>
 
