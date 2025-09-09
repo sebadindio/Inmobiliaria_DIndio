@@ -12,7 +12,7 @@ Primera entrega de Proyecto de SQL
 5. [Descripcion de la Base de Datos](#descripcion-de-la-base-de-datos)
 6. [Vistas](#vistas)
 7. [Funciones](#funciones)
-8. [Stored Procedures](#stored_procedures)
+8. [Stored Procedures](#stored-procedures)
 9. [Trigger](#trigger)
 10. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
 
@@ -65,7 +65,7 @@ dificulta la trazabilidad de la información y complica la toma de decisiones.
 ```sh
 La inmobiliaria administra tres edificios con distintos tipos de alquileres: permanentes y temporales. Cada edificio tiene
 múltiples departamentos con propietarios individuales o empresas.
-Los ingresos principales provienen de los alquileres y elcobro de expensas, mientras que los egresos están relacionados con
+Los ingresos principales provienen de los alquileres y el cobro de expensas, mientras que los egresos están relacionados con
 mantenimiento, servicios y mejoras edilicias. El modelo de datos diseñado contempla:
   - Registro y vinculación de propietarios con sus departamentos.
   - Gestión de inquilinos permanentes y temporales.
@@ -117,22 +117,22 @@ Uso principal: llevar control financiero de las expensas de cada unidad.
 Clave primaria: id_expensa.
 Clave foránea: id_depto (relacionada con la tabla "departamentos").
 
-    5. Tabla "inquilinos_temporales":
+    5. Tabla "inquilinos_generales":
 
 Almacena datos personales de personas que alquilan departamentos por períodos cortos.
-Contiene nombre, apellido, email, teléfono, documento y fecha de nacimiento.
+Contiene tipo_inquilino, nombre, apellido, email, teléfono, documento y fecha de nacimiento.
 Uso principal: identificación y contacto de inquilinos en alquiler temporal.
 Clave primaria: id_inquilino.
 No tiene claves foráneas.
 
-    6. Tabla "alquiler_temporal":
+    6. Tabla "alquileres":
 
 Registra la relación entre un departamento y un inquilino temporal para un período específico.
 Incluye fechas de ingreso y salida, monto diario y monto total del alquiler, además de la referencia al propietario.
 Uso principal: gestión de contratos de alquiler temporal y cálculo de ingresos.
 Clave primaria: id_alquiler
 Clave foránea: id_depto (relacionada con la tabla "departamentos").
-Clave foránea: id_inquilino (relacionada con la tabla "inquilinos_temporales").
+Clave foránea: id_inquilino (relacionada con la tabla "inquilinos_generales").
 
       7. Tabla "gastos_detallados":
 
@@ -147,12 +147,14 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 <br>
 
 ``` sh
-
-- Deuda de expensas
-- Relación propietarios/departamentos
-- Control de alquileres activos
-- Desglose de gastos en expensas
-- Análisis financiero por edificio
+Se definen seis vistas que cubren los principales aspectos y para uso de consultas rápidas
+de la gestión inmobiliaria, como así tambien ejemplos de utilidad en la practica:
+  - Deuda de expensas
+  - Relación propietarios/departamentos
+  - Control de alquileres activos
+  - Desglose de gastos en expensas
+  - Análisis financiero por edificio
+  - Disponibilidad de departamentos.
 
       1. Vista "vista_expensas_pendientes"
 
@@ -172,7 +174,7 @@ Tablas involucradas: propietarios, departamentos, edificios.
 
 Descripción: Muestra los alquileres temporales que están vigentes (fecha actual entre inicio y fin).
 Objetivo: Saber en tiempo real qué departamentos están ocupados y cuáles disponibles.
-Tablas involucradas: alquileres_temporales, departamentos, inquilinos_temporales.
+Tablas involucradas: alquileres, departamentos, inquilinos_generales.
 
       4. Vista "vista_gastos_expensas"
 
@@ -184,38 +186,121 @@ Tablas involucradas: expensas, gastos_detallados.
 
 Descripción: Resume el total recaudado por expensas y alquileres temporales agrupado por edificio.
 Objetivo: Evaluar el rendimiento económico de cada edificio y detectar cuáles generan mayores ingresos.
-Tablas involucradas: expensas, alquileres_temporales, departamentos, edificios.
+Tablas involucradas: expensas, alquileres, departamentos, edificios.
+
+      6. Vista "vista_deptos_disponibles"
+
+Descripción: Lista todos los departamentos que no están alquilados actualmente en el sistema de alquiler temporal.
+Objetivo: Ayudar a la inmobiliaria a saber qué unidades están libres para ofrecer.
+Tablas involucradas: departamentos, alquileres, edificios.
 
 ```
 
-
 ## Funciones
-(2) que incluyan una descripción detallada, el objetivo para la cual fueron creadas y qué datos o tablas manipulan y/o son implementadas.
 <br>
 
 ``` sh
+      1- Función "calcular_monto_expensa_total"
 
+Descripción: Esta función toma un id_depto un mes y año, y devuelve el monto total de la expensa de ese departamento, 
+sumando el monto base, los extras y los gastos detallados asociados a esa expensa.
+Objetivo: 
+	- Facilitar el cálculo del monto total a pagar por un departamento en un período específico.
+	- Permitir generar reportes o facturas automáticamente.
+Tablas manipuladas:
+	- "expensas" para obtener el monto base, monto extra y deuda.
+	- "gastos_detallados" para sumar los gastos asociados a la expensa.
+
+      2. Función "calcular_dias_alquiler"
+
+Descripción: Esta función toma un id_alquiler y devuelve la cantidad de días totales de ese alquiler temporal.
+Objetivo:
+	- Permitir calcular montos totales de alquileres multiplicando por el monto diario.
+	- Ayudar a generar reportes de ocupación y facturación.
+Tablas manipuladas:
+	- "alquileres" para obtener fecha_inicio y fecha_fin.
 
 
 ```
 
 ## Stored Procedures
-(2) con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúa.
 <br>
 
 ``` sh
+      1- SP "sp_agregar_expensa"
 
+Descripción: Este procedimiento permite agregar automáticamente una expensa para un departamento específico, 
+incluyendo el monto base, monto extra, fecha de pago y deuda
+Objetivo:
+	- Facilita la carga de expensas mensual sin necesidad de insertar manualmente cada registro
+	- Reduce errores de duplicación y agiliza la administración
+Tablas involucradas:	
+	- "expensas" se inserta el registro
+	- "departamentos" se valida que el departamento exista
 
+      2- SP "sp_registrar_alquiler"
+
+Descripción: Permite registrar un nuevo alquiler temporal o permanente en la tabla alquileres, 
+calculando automáticamente los días totales y validando que el departamento esté disponible en las fechas ingresadas
+Objetivos:
+	- Automatiza la creación de alquileres
+	- Evita conflictos de fechas y sobreposición de alquileres
+	- Centraliza la lógica de validación de disponibilidad
+Tablas involucradas:
+	- "alquileres" como registro principal
+	- "departamentos" para verificar existencia y disponibilidad
+	- "inquilinos_generales" para asociar el inquilino al alquiler
+
+      3- SP "sp_generar_reporte_expensas"
+
+Descripción: Genera un reporte completo de expensas de todos los departamentos para un mes y año específicos, 
+incluyendo el total de gastos detallados
+Objetivo:
+	- Facilita la generación de reportes mensuales para administración y contabilidad
+	- Automatiza el cálculo de totales y la unión de datos de varias tablas
+Tablas involucradas:
+	- "expensas" son datos base de expensas
+	- "gastos_detallados" suma de gastos asociados a cada expensa
+	- "departamentos y edificios" información adicional para identificar cada departamento y edificio
+
+      4- SP "sp_actualizar_estado_pago"
+
+Descripción: Actualiza el estado de una expensa y la fecha de pago
+Objetivo:
+	- Permite registrar pagos de expensas de manera rápida
+	- Evita inconsistencias manuales en los registros
+Tablas involucradas: "expensas" actualización de pagado y fecha_pago
 
 ```
 
 ## Trigger
-(2)
 <br>
 
 ``` sh
+      1- Trigger "trg_actualizar_deuda_expensa"
 
+Funcionalidad: Se ejecuta después de agregar o actualizar una expensa. Tambien calcula automáticamente la deuda 
+si la expensa no fue pagada en su totalidad
+Objetivo:
+	- Mantener actualizado el monto de la deuda sin necesidad de hacerlo manualmente
+	- Facilita reportes de deudores y seguimiento de pagos
+Tablas involucrada: expensas 
 
+      2- Trigger "trg_validar_fecha_alquiler"
+
+Funcionalidad: se ejecuta antes de agregar o actualizar un alquiler. Valida que las fechas de inicio y fin no se 
+superpongan con otros alquileres del mismo departamento
+Objetivo:
+	- Evitar conflictos de disponibilidad de departamentos
+	- Mantener integridad de la información de alquileres
+Tabla involucrada: alquileres
+
+      3- Trigger "trg_actualizar_total_expensas"
+
+Funcionalidad: se ejecuta después de agregar o actualizar un gasto detallado. Actualiza automáticamente el total de la
+expensa asociada (monto + monto_extra + suma de gastos)
+Objetivo: mantener el total de expensas actualizado para reportes o cálculos de deuda
+Tablas involucradas: gastos_detallados y expensas
 
 ```
 
@@ -228,8 +313,11 @@ Click en los siguientes enlaces:
 - <a href="./Tabla_create.sql"> Creacion de la Base de Datos </a><br>
 - <a href="./Insertar_datos.sql">Script de Inserción de Datos de las tablas principales</a><br>
 - <a href="./Insertar_datos_extras.sql">Script de Inserción de Datos de tablas adicionales</a><br>
-- <a href="./Diagrama_ER.png">Diagrama Entidad-Relación</a>
-
+- <a href="./Diagrama_ER.png">Diagrama Entidad-Relación</a><br>
+- <a href="./Vistas.sql">Script de las Vistas</a><br>
+- <a href="./Funciones.sql">Script de las Funciones</a><br>
+- <a href="./Stored_Procedure.sql">Script de Stored Procedures</a><br>
+- <a href="./Trigger.sql">Script de Stored Procedures</a>
 <br>
 
 ---
