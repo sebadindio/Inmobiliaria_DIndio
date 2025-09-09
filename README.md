@@ -10,10 +10,10 @@ Primera entrega de Proyecto de SQL
 3. [Situación Problematica](#situación-problematica)  
 4. [Modelo de negocio](#modelo-de-negocio)  
 5. [Descripcion de la Base de Datos](#descripcion-de-la-base-de-datos)
-6. [Vistas]
-7. [Funciones]
-8. [Stored Procedures]
-9. [Trigger]
+6. [Vistas](#vistas)
+7. [Funciones](#funciones)
+8. [Stored Procedures](#stored_procedures)
+9. [Trigger](#trigger)
 10. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
 
 ---
@@ -144,32 +144,77 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
 ```
 ## Vistas (5)
-más una descripción detallada, su objetivo, y qué tablas las componen.
+<br>
+
+``` sh
+
+- Deuda de expensas
+- Relación propietarios/departamentos
+- Control de alquileres activos
+- Desglose de gastos en expensas
+- Análisis financiero por edificio
+
+      1. Vista "vista_expensas_pendientes"
+
+Descripción: Muestra todas las expensas que aún no fueron pagadas por los propietarios.
+Objetivo: Permitir un control rápido de la deuda y seguimiento de pagos atrasados, es decir, identificar las expensas no pagadas y los propietarios responsables.
+Tablas involucradas: expensas, departamentos, propietarios.
+
+      2. Vista "vista_propietarios_deptos"
+      
+Descripción: Lista todos los propietarios junto con los departamentos que poseen.
+Objetivo: Tener una visión clara de qué departamentos corresponden a cada propietario y en que edificio están, incluso si tienen más de uno.
+Tablas involucradas: propietarios, departamentos, edificios.
+
+      3. Vista "vista_alquileres_activos"
+
+Descripción: Muestra los alquileres temporales que están vigentes (fecha actual entre inicio y fin).
+Objetivo: Saber en tiempo real qué departamentos están ocupados y cuáles disponibles.
+Tablas involucradas: alquileres_temporales, departamentos, inquilinos_temporales.
+
+      4. Vista "vista_gastos_expensas"
+
+Descripción: Relaciona las expensas con el detalle de gastos individuales.
+Objetivo: Permitir un desglose de los gastos de mantenimiento que componen las expensas de cada departamento.
+Tablas involucradas: expensas, gastos_detallados.
+
+      5. Vista "vista_ingresos_por_edificio"
+
+Descripción: Resume el total recaudado por expensas y alquileres temporales agrupado por edificio.
+Objetivo: Evaluar el rendimiento económico de cada edificio y detectar cuáles generan mayores ingresos.
+Tablas involucradas: expensas, alquileres_temporales, departamentos, edificios.
+
+```
+
 
 ## Funciones (2)
 que incluyan una descripción detallada, el objetivo para la cual fueron creadas y qué datos o tablas manipulan y/o son implementadas.
+<br>
+
+``` sh
+
+
+
+```
 
 ## Stored Procedures (2)
 con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúa.
+<br>
+
+``` sh
+
+
+
+```
 
 ## Trigger (2)
+<br>
+
+``` sh
 
 
 
-Un archivo .sql que contenga:
-
-Script de inserción de datos en las bases.
-
-Si se insertan datos mediante importación, agregar el paso a paso de éste en el DOC PDF más los archivos con el contenido a importar, en el formato que corresponda.
-
-Script de creación de Vistas, Funciones, Stored Procedures y Triggers. <---------------> Formato
-
-
-Documento PDF con el nombre “Entrega2 + Apellido”.
-
-
-
-
+```
 
 <br>
 
