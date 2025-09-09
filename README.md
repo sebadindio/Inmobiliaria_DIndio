@@ -143,7 +143,7 @@ Clave primaria: id_gasto.
 Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
 ```
-## Vistas (5)
+## Vistas
 <br>
 
 ``` sh
@@ -157,13 +157,15 @@ Clave foránea: id_expensa (relacionada con la tabla "expensas").
       1. Vista "vista_expensas_pendientes"
 
 Descripción: Muestra todas las expensas que aún no fueron pagadas por los propietarios.
-Objetivo: Permitir un control rápido de la deuda y seguimiento de pagos atrasados, es decir, identificar las expensas no pagadas y los propietarios responsables.
+Objetivo: Permitir un control rápido de la deuda y seguimiento de pagos atrasados, es decir, identificar las expensas
+ no pagadas y los propietarios responsables.
 Tablas involucradas: expensas, departamentos, propietarios.
 
       2. Vista "vista_propietarios_deptos"
       
 Descripción: Lista todos los propietarios junto con los departamentos que poseen.
-Objetivo: Tener una visión clara de qué departamentos corresponden a cada propietario y en que edificio están, incluso si tienen más de uno.
+Objetivo: Tener una visión clara de qué departamentos corresponden a cada propietario y en que edificio están, incluso
+si tienen más de uno.
 Tablas involucradas: propietarios, departamentos, edificios.
 
       3. Vista "vista_alquileres_activos"
@@ -187,8 +189,8 @@ Tablas involucradas: expensas, alquileres_temporales, departamentos, edificios.
 ```
 
 
-## Funciones (2)
-que incluyan una descripción detallada, el objetivo para la cual fueron creadas y qué datos o tablas manipulan y/o son implementadas.
+## Funciones
+(2) que incluyan una descripción detallada, el objetivo para la cual fueron creadas y qué datos o tablas manipulan y/o son implementadas.
 <br>
 
 ``` sh
@@ -197,8 +199,8 @@ que incluyan una descripción detallada, el objetivo para la cual fueron creadas
 
 ```
 
-## Stored Procedures (2)
-con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúa.
+## Stored Procedures
+(2) con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y las tablas que lo componen y/o tablas con las que interactúa.
 <br>
 
 ``` sh
@@ -207,7 +209,8 @@ con una descripción detallada, qué objetivo o beneficio aportan al proyecto, y
 
 ```
 
-## Trigger (2)
+## Trigger
+(2)
 <br>
 
 ``` sh
