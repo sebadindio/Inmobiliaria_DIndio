@@ -317,7 +317,7 @@ Click en los siguientes enlaces:
 - <a href="./Vistas.sql">Script de las Vistas</a><br>
 - <a href="./Funciones.sql">Script de las Funciones</a><br>
 - <a href="./Stored_Procedure.sql">Script de Stored Procedures</a><br>
-- <a href="./Trigger.sql">Script de Stored Procedures</a>
+- <a href="./Trigger.sql">Script de Trigger</a>
 <br>
 
 ---
