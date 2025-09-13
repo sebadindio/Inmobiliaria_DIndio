@@ -316,8 +316,8 @@ Click en los siguientes enlaces:
 - <a href="./Diagrama_ER.png">Diagrama Entidad-Relación</a><br>
 - <a href="./Vistas.sql">Script de las Vistas</a><br>
 - <a href="./Funciones.sql">Script de las Funciones</a><br>
-- <a href="./Stored_Procedure.sql">Script de Stored Procedures</a><br>
-- <a href="./Trigger.sql">Script de Trigger</a>
+- <a href="./Store_procedures.sql">Script de Stored Procedures</a><br>
+- <a href="./Triggers.sql">Script de Trigger</a>
 <br>
 
 ---
