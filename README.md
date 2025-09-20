@@ -14,7 +14,9 @@ Primera entrega de Proyecto de SQL
 7. [Funciones](#funciones)
 8. [Stored Procedures](#stored-procedures)
 9. [Trigger](#trigger)
-10. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
+10. [Back up](#back-up)
+11. [Cracion de usuarios](#creacion-de-usuarios)
+12. [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)  
 
 ---
 
