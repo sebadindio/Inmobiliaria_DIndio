@@ -327,21 +327,37 @@ Tablas involucradas: gastos_detallados y expensas
 
 ```
 
+## Creación de usuarios
+<br>
+
+``` sh
+Para tener mayor consistencia en la base de datos y manejar la lógica o gestión de esta sin inconvenientes,
+se decide otorgar diferentes permisos de acuerdo a las tareas que pueden realizar cada rol, teniendo mayor 
+control sobre los datos
+Se crearon 3 tipos de usuarios, con su identificación y permiso
+	-	Administrador: tiene acceso completo a la BD
+	- 	Operador: puede consultar y modificar, pero no borrar ni alterar estructura
+	- 	Contador: solo necesita lectura (para informes y consultas)
+
+```
+
 ## Back up
-## Trigger
 <br>
 
 ``` sh
 En caso de recuperar la información de este material, sea por rotura, pérdida o inconvenientes, favor de seguir 
 los siguientes pasos: 
-	- Puede hacerse desde 'mysqldump', restaurando  la base de datos:
-mysql -u root -p inmobiliaria < inmobiliaria_backup.sql
+	- Puede hacer click en el archivo: Inmobiliaria_backup20250920.sql
+Abrir con programa MySQL
+Correr las sentencias
 
 	- Puede hacer desde Workbench:
-Ir a Server > Data Export.
-Elegir inmobiliaria
-Cliquear si en estructura, datos o ambos.
-Exportar a un .sql
+Conectar con la Base de Datos de trabajo
+Ir a Administration: En la barra lateral izquierda, haz clic en la pestaña Administration
+Seleccionar Data Import/Restore
+Elegir el archivo de Backup: Inmobiliaria_backup20250920.sql (importar desde Self-Contained File ya que es un archivo .sql único)
+Verificar seleccion "Dump Structure and Data"
+Seleccionar schema: "Inmobiliaria" (en caso de no existir, crearlo bajo ese nombre)
 
 ```
 ---
@@ -358,7 +374,8 @@ Click en los siguientes enlaces:
 - <a href="./Funciones.sql">Script de las Funciones</a><br>
 - <a href="./Store_procedures.sql">Script de Stored Procedures</a><br>
 - <a href="./Triggers.sql">Script de Trigger</a>
-- <a href="./Back_up.sql">Script de Back up</a>
+- <a href="./Usuarios_permisos.sql">Script de usuarios y permisos</a>
+- <a href="./Inmobiliaria_backup20250920.sql">Script de Back up</a>
 <br>
 
 ---
