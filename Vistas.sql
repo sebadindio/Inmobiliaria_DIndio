@@ -162,7 +162,6 @@ ORDER BY total_ingresos DESC;
 -- En este caso es solo edificio Tempo, ya que no hay alquileres permanentes en los otros edificios aún
 
 
-
 -- 6- vista_deptos_disponibles --------------------------------------------------------------------------------------------------
 -- Objetivo: Ayudar a la inmobiliaria a saber qué unidades están libres para ofrecer
 CREATE OR REPLACE VIEW vista_deptos_disponibles AS
@@ -189,3 +188,26 @@ SELECT
 FROM vista_deptos_disponibles
 WHERE nombre = 'Tempo'
 ORDER BY piso, numero;
+
+
+-- 7- vista_contratos_activos --------------------------------------------------------------------------------------------------
+-- Objetivo: Facilitar el seguimiento de contratos sin necesidad de revisar manualmente las fechas.
+CREATE OR REPLACE VIEW vista_contratos_activos AS
+SELECT 
+    c.id_contrato,
+    CONCAT(i.nombre, ' ', i.apellido) AS inquilino,
+    d.id_depto,
+    d.piso,
+    d.numero AS numero_depto,
+    c.fecha_inicio,
+    c.fecha_fin,
+    CASE 
+        WHEN CURDATE() BETWEEN c.fecha_inicio AND c.fecha_fin THEN 'Activo'
+        ELSE 'Vencido'
+    END AS estado
+FROM contratos c
+INNER JOIN inquilinos_generales i ON c.id_inquilino = i.id_inquilino
+INNER JOIN departamentos d ON c.id_depto = d.id_depto;
+
+-- Por ejemplo con un simple SELECT ya estaría
+SELECT * FROM vista_contratos_activos;

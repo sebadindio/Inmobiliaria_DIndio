@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS alquileres (
     FOREIGN KEY (id_inquilino) REFERENCES inquilinos_generales(id_inquilino));
 
 -- Tabla gastos detallados
-CREATE TABLE IF NOT EXISTS gastos_detallados(
+CREATE TABLE IF NOT EXISTS gastos_detallados (
     id_gasto INT PRIMARY KEY AUTO_INCREMENT,
     id_expensa INT NOT NULL,
     descripcion VARCHAR(250) NOT NULL,
@@ -78,9 +78,24 @@ CREATE TABLE IF NOT EXISTS gastos_detallados(
     fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_expensa) REFERENCES expensas(id_expensa));
 
-
-
-
+-- Tabla contratos permanentes
+CREATE TABLE contratos (
+    id_contrato INT PRIMARY KEY AUTO_INCREMENT,
+    id_inquilino INT NOT NULL,
+    id_depto INT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+    clausulas TEXT,
+    FOREIGN KEY (id_inquilino) REFERENCES inquilinos_generales(id_inquilino),
+    FOREIGN KEY (id_depto) REFERENCES departamentos(id_depto));
+    
+-- Tabla usuarios/roles
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_usuario VARCHAR(50) UNIQUE NOT NULL,
+    password_usuario VARCHAR(200) NOT NULL,
+    rol ENUM('ADMINISTRADOR','OPERADOR','CONTADOR') NOT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
 
 
 

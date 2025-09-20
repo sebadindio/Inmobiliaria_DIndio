@@ -847,4 +847,21 @@ VALUES
 (29, 'Compra de materiales eléctricos', 900.00, '2025-03-20 09:05:00'),
 (30, 'Limpieza y mantenimiento de garajes', 1500.00, '2025-03-22 16:30:00');
 
+-- Datos para la tabla contratos --------------------------------------------------------------------------------------------
+INSERT INTO contratos (id_inquilino, id_depto, fecha_inicio, fecha_fin, clausulas)
+VALUES
+(1, 10, '2025-01-01', '2026-01-01', 'El inquilino debe pagar expensas ordinarias, no extraordinarias.'),
+(2, 15, '2025-02-01', '2026-02-01', 'Se prohíbe subalquiler, fecha de pago el día 5 de cada mes.'),
+(3, 20, '2025-03-01', '2026-03-01', 'El inquilino cubre servicios básicos, la garantía es de 2 meses.'),
+(5, 65, '2025-01-15', '2025-04-15', 'Incluye mobiliario y servicios básicos, no se permiten mascotas.'),
+(7, 72, '2025-02-01', '2025-05-01', 'Contrato turístico, Se debe abonar el total por adelantado.'),
+(9, 80, '2025-03-01', '2025-06-01', 'Estadía temporal, incluye limpieza semanal.');
+
+
+-- Datos para la tabla usuarios --------------------------------------------------------------------------------------------
+INSERT INTO usuarios (nombre_usuario, password_usuario, rol)
+VALUES
+('administrador1', 'admin123', 'ADMINISTRADOR'),
+('operador1', 'operador123', 'OPERADOR'),
+('contador1', 'contador123', 'CONTADOR');
 
