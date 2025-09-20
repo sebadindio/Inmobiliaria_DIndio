@@ -142,6 +142,23 @@ Uso principal: dar transparencia y detalle sobre el origen de los costos incluid
 Clave primaria: id_gasto.
 Clave foránea: id_expensa (relacionada con la tabla "expensas").
 
+      8. Tabla "contratos":
+
+Relaciona al inquilino con el departamento en uso, saber su duración e información extra.
+Incluye id_contrato, inquilino, depto referido, fecha de inicio y fin, clausulas necesarias.
+Uso principal: manejar formalmente los contratos firmados, principalmente cuando no son temporales.
+Clave primaria: id_contrato
+Clave foránea: id_inquilino (relacionada con la tabla "inquilinos_generales").
+Clave foránea: id_depto (relacionada con la tabla "departamentos").     
+
+      9. Tabla "usuarios":
+
+Esta tabla no impacta en la lógica de negocio de la inmobiliaria, pero sí en el sistema.
+Incluye nro de usuario, nombre, contraseña, rol y fecha de creación para un control. 
+Uso principal: diferenciar roles administrador, empleado, contador para una mejor gestión del sistema.
+Clave primaria: id_usuario.
+No tiene claves foráneas.
+
 ```
 ## Vistas
 <br>
@@ -193,6 +210,12 @@ Tablas involucradas: expensas, alquileres, departamentos, edificios.
 Descripción: Lista todos los departamentos que no están alquilados actualmente en el sistema de alquiler temporal.
 Objetivo: Ayudar a la inmobiliaria a saber qué unidades están libres para ofrecer.
 Tablas involucradas: departamentos, alquileres, edificios.
+
+      7. Vista "vista_contratos_activos"
+
+Descripción: Mostrar en un único lugar la información relevante del contrato, el inquilino y el departamento.
+Objetivo: Facilitar el seguimiento de contratos sin necesidad de revisar manualmente las fechas.
+Tablas involucradas: contrato, inquilinos_generales, departamentos.
 
 ```
 
@@ -304,7 +327,24 @@ Tablas involucradas: gastos_detallados y expensas
 
 ```
 
+## Back up
+## Trigger
 <br>
+
+``` sh
+En caso de recuperar la información de este material, sea por rotura, pérdida o inconvenientes, favor de seguir 
+los siguientes pasos: 
+	- Puede hacerse desde 'mysqldump', restaurando  la base de datos:
+mysql -u root -p inmobiliaria < inmobiliaria_backup.sql
+
+	- Puede hacer desde Workbench:
+Ir a Server > Data Export.
+Elegir inmobiliaria
+Cliquear si en estructura, datos o ambos.
+Exportar a un .sql
+
+```
+---
 
 ## Scripts de la Base de Datos
 Click en los siguientes enlaces:
@@ -318,6 +358,7 @@ Click en los siguientes enlaces:
 - <a href="./Funciones.sql">Script de las Funciones</a><br>
 - <a href="./Store_procedures.sql">Script de Stored Procedures</a><br>
 - <a href="./Triggers.sql">Script de Trigger</a>
+- <a href="./Back_up.sql">Script de Back up</a>
 <br>
 
 ---
